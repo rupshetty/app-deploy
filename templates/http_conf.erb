@@ -1,0 +1,13 @@
+Listen <%= @port %>
+
+<VirtualHost *:<%= @port %>>
+	ServerName <%= @site %>.example.com
+	DocumentRoot	/var/www/<%= @site %>
+	DirectoryIndex	index.html
+</VirtualHost>
+
+<Directory /var/www/<%= @site %>>
+	require all granted
+	order allow,deny
+	allow from all
+</Directory>
